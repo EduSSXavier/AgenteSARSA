@@ -1,0 +1,14 @@
+FROM alpine:latest
+
+RUN apk update
+RUN apk add python3
+RUN apk add py3-pip
+RUN pip install sockets 
+RUN pip install numpy 
+
+WORKDIR /home
+
+COPY ./maphosts.py ./
+COPY ./produtor.py ./
+
+CMD ["python3","produtor.py"]
